@@ -12,6 +12,7 @@ struct ContentView: View {
     @ObservedObject var state: AppState
     @State var selectedFidgetId: Int? = nil
     @Environment(\.scenePhase) private var scenePhase
+    @State var isFirstLoad = true
     var body: some View {
         NavigationView {
             List(state.fidgets.indices, id: \.self) { index in
@@ -20,13 +21,13 @@ struct ContentView: View {
                     tag: state.fidgets[index].id,
                     selection: $selectedFidgetId) {
                     FidgetListItem(fidget: $state.fidgets[index])
-                        .frame(maxWidth: .infinity)
                 }
             }
             .navigationTitle("Fidget Collection")
             .onAppear {
-                guard let data = UserDefaults(suiteName: appGroup)?.value(forKey: "fidgets") as? Data else { return }
-                state.fidgets = try! JSONDecoder().decode([Fidget].self, from: data)
+                guard isFirstLoad else { return }
+                self.isFirstLoad = false
+                self.loadData()
             }
             .onOpenURL(perform: { url in
                 self.selectedFidgetId = state.fidgets.first(where: { $0.fidgetUrl == url})?.id
@@ -34,18 +35,29 @@ struct ContentView: View {
             .onChange(of: scenePhase) { phase in
                 switch phase {
                 case .active:
-                    guard let data = UserDefaults(suiteName: appGroup)?.value(forKey: "fidgets") as? Data else { return }
-                    state.fidgets = try! JSONDecoder().decode([Fidget].self, from: data)
+                    self.loadData()
                 case .inactive:
-                    let data = try? JSONEncoder().encode(state.fidgets)
-                    UserDefaults(suiteName: appGroup)?.setValue(data, forKey: "fidgets")
+                    self.save()
                 case .background:
                     break
                 @unknown default:
                     break
                 }
             }
+            .onReceive(NotificationCenter.default.publisher(for: .SaveData)) { data in
+                save()
+            }
         }
+    }
+    
+    func loadData() {
+        guard let data = UserDefaults(suiteName: appGroup)?.value(forKey: "fidgets") as? Data else { return }
+        state.fidgets = try! JSONDecoder().decode([Fidget].self, from: data)
+    }
+    
+    func save() {
+        let data = try? JSONEncoder().encode(state.fidgets)
+        UserDefaults(suiteName: appGroup)?.setValue(data, forKey: "fidgets")
     }
 }
 
@@ -58,12 +70,12 @@ struct FidgetListItem: View {
                 .scaledToFit()
                 .frame(height: 100)
                 .padding()
-            HStack {
+            HStack(spacing: 8) {
                 Text(fidget.name)
                     .font(.subheadline)
                     .fontWeight(.bold)
+                    .frame(maxWidth: .infinity)
                     .padding()
-                Spacer()
                 VStack(alignment: .leading) {
                     Text("Level: \(fidget.level)")
                         .font(.caption)
@@ -84,4 +96,8 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(state: .init(fidgets: [.batman]))
     }
+}
+
+extension Notification.Name {
+    static let SaveData = Notification.Name(rawValue: "SaveData")
 }

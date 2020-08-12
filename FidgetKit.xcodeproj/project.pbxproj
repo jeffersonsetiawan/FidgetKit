@@ -21,6 +21,9 @@
 		E5E5556324E2D66000F71930 /* Fidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5556224E2D66000F71930 /* Fidget.swift */; };
 		E5E5556524E2D67E00F71930 /* FidgetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5556424E2D67E00F71930 /* FidgetDetailView.swift */; };
 		E5E5556624E2ED0D00F71930 /* Fidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5556224E2D66000F71930 /* Fidget.swift */; };
+		E5E5556B24E3B58B00F71930 /* Foundation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5556A24E3B58B00F71930 /* Foundation+Ext.swift */; };
+		E5E5556C24E3B59100F71930 /* Foundation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5556A24E3B58B00F71930 /* Foundation+Ext.swift */; };
+		E5E5556D24E3B6F000F71930 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5E5552324E2C6C600F71930 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,9 @@
 		E5E5555924E2D3B100F71930 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5E5556224E2D66000F71930 /* Fidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fidget.swift; sourceTree = "<group>"; };
 		E5E5556424E2D67E00F71930 /* FidgetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FidgetDetailView.swift; sourceTree = "<group>"; };
+		E5E5556724E3A34600F71930 /* FidgetKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FidgetKit.entitlements; sourceTree = "<group>"; };
+		E5E5556824E3A35C00F71930 /* FidgetWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FidgetWidgetExtension.entitlements; sourceTree = "<group>"; };
+		E5E5556A24E3B58B00F71930 /* Foundation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,7 @@
 		E5E5551324E2C6C500F71930 = {
 			isa = PBXGroup;
 			children = (
+				E5E5556824E3A35C00F71930 /* FidgetWidgetExtension.entitlements */,
 				E5E5551E24E2C6C500F71930 /* FidgetKit */,
 				E5E5553024E2C6C600F71930 /* FidgetKitTests */,
 				E5E5553B24E2C6C600F71930 /* FidgetKitUITests */,
@@ -144,6 +151,8 @@
 		E5E5551E24E2C6C500F71930 /* FidgetKit */ = {
 			isa = PBXGroup;
 			children = (
+				E5E5556924E3B57D00F71930 /* Core */,
+				E5E5556724E3A34600F71930 /* FidgetKit.entitlements */,
 				E5E5556124E2D65D00F71930 /* Model */,
 				E5E5551F24E2C6C500F71930 /* FidgetKitApp.swift */,
 				E5E5552124E2C6C500F71930 /* ContentView.swift */,
@@ -206,6 +215,14 @@
 				E5E5556224E2D66000F71930 /* Fidget.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E5E5556924E3B57D00F71930 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E5E5556A24E3B58B00F71930 /* Foundation+Ext.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E5556D24E3B6F000F71930 /* Assets.xcassets in Resources */,
 				E5E5555824E2D3B100F71930 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E5552224E2C6C500F71930 /* ContentView.swift in Sources */,
+				E5E5556B24E3B58B00F71930 /* Foundation+Ext.swift in Sources */,
 				E5E5556324E2D66000F71930 /* Fidget.swift in Sources */,
 				E5E5556524E2D67E00F71930 /* FidgetDetailView.swift in Sources */,
 				E5E5552024E2C6C500F71930 /* FidgetKitApp.swift in Sources */,
@@ -395,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E5556C24E3B59100F71930 /* Foundation+Ext.swift in Sources */,
 				E5E5556624E2ED0D00F71930 /* Fidget.swift in Sources */,
 				E5E5555624E2D3B000F71930 /* FidgetWidget.swift in Sources */,
 			);
@@ -543,6 +563,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FidgetKit/FidgetKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"FidgetKit/Preview Content\"";
 				DEVELOPMENT_TEAM = Y4SHBBLB3Q;
@@ -566,6 +587,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FidgetKit/FidgetKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"FidgetKit/Preview Content\"";
 				DEVELOPMENT_TEAM = Y4SHBBLB3Q;
@@ -672,6 +694,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FidgetWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4SHBBLB3Q;
 				INFOPLIST_FILE = FidgetWidget/Info.plist;
@@ -693,6 +716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FidgetWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4SHBBLB3Q;
 				INFOPLIST_FILE = FidgetWidget/Info.plist;

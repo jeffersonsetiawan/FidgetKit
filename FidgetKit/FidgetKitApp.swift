@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-public let appGroup = "group.jeffersonsetiawan.FidgetKit"
-
 @main
 struct FidgetKitApp: App {
     @StateObject var state: AppState = AppState(fidgets: [.batman, .blue])

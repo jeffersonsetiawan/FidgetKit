@@ -13,10 +13,13 @@ class AppState: ObservableObject {
         self.fidgets = fidgets
     }
 }
+
+public let appGroup = "group.jeffersonsetiawan.FidgetKit"
+
 struct Fidget: Equatable, Hashable, Codable, Identifiable {
-    var id: Int
-    var name: String
-    var image: String
+    let id: Int
+    let name: String
+    let image: String
     var rotationPerSpin: Int
     var rotationTimePerSpin: TimeInterval
     var level: Int
@@ -27,6 +30,11 @@ struct Fidget: Equatable, Hashable, Codable, Identifiable {
     var isInRotating: Bool {
         guard let lastSpinDate = lastSpinDate else { return false }
         return lastSpinDate.addingTimeInterval(rotationTimePerSpin) > Date()
+    }
+    
+    var timeNeededToFinishRotation: TimeInterval {
+        guard let lastSpinDate = lastSpinDate, isInRotating else { return 0 }
+        return rotationTimePerSpin - (Date().timeIntervalSince1970 - lastSpinDate.timeIntervalSince1970)
     }
     
     var totalSpin: Int {
@@ -57,7 +65,7 @@ extension Fidget {
         name: "Batman Fidget",
         image: "batman_fidget",
         rotationPerSpin: 2000,
-        rotationTimePerSpin: 10,
+        rotationTimePerSpin: 60,
         level: 1,
         lastSpinDate: Date(timeIntervalSinceNow: -9),
         spinCount: 1,
@@ -69,7 +77,7 @@ extension Fidget {
         name: "Red Fidget",
         image: "red_fidget",
         rotationPerSpin: 50,
-        rotationTimePerSpin: 10,
+        rotationTimePerSpin: 20,
         level: 1
     )
     
@@ -78,7 +86,7 @@ extension Fidget {
         name: "Blue Fidget",
         image: "blue_fidget",
         rotationPerSpin: 50,
-        rotationTimePerSpin: 10,
+        rotationTimePerSpin: 20,
         level: 1
     )
     
@@ -105,7 +113,7 @@ extension Fidget {
         name: "Rainbow Fidget",
         image: "rainbow_fidget",
         rotationPerSpin: 100,
-        rotationTimePerSpin: 10,
+        rotationTimePerSpin: 40,
         level: 1
     )
 }
