@@ -7,6 +7,7 @@
 
 import Combine
 import SwiftUI
+import WidgetKit
 
 struct ContentView: View {
     @ObservedObject var state: AppState
@@ -51,13 +52,20 @@ struct ContentView: View {
     }
     
     func loadData() {
-        guard let data = UserDefaults(suiteName: appGroup)?.value(forKey: "fidgets") as? Data else { return }
+        guard let data = UserDefaults(suiteName: appGroup)?.value(forKey: "fidgets") as? Data else {
+            state.fidgets = [
+                .batman,
+                .blue
+            ]
+            return
+        }
         state.fidgets = try! JSONDecoder().decode([Fidget].self, from: data)
     }
     
     func save() {
         let data = try? JSONEncoder().encode(state.fidgets)
         UserDefaults(suiteName: appGroup)?.setValue(data, forKey: "fidgets")
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
 

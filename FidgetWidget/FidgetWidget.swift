@@ -18,7 +18,7 @@ struct Provider: TimelineProvider {
         completion(entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<FidgetEntry>) -> ()) {
         guard let data = UserDefaults(suiteName: appGroup)?.value(forKey: "fidgets") as? Data,
               let fidgets = try? JSONDecoder().decode([Fidget].self, from: data) else {
             completion(Timeline(entries: [], policy: .never))
@@ -30,7 +30,9 @@ struct Provider: TimelineProvider {
             return
         }
 
-        let dateToBeRefresh = Date(timeIntervalSinceNow: fidgetThatWouldStop.timeNeededToFinishRotation)
+//        let dateToBeRefresh = Date()
+        let dateToBeRefresh = Calendar.current.date(byAdding: .second, value: Int(fidgetThatWouldStop.timeNeededToFinishRotation), to: Date())!
+//        let dateToBeRefresh = Date(timeIntervalSinceNow: fidgetThatWouldStop.timeNeededToFinishRotation)
         let timeline = Timeline(
             entries: [
                 FidgetEntry(date: Date(), fidgets: fidgets),
@@ -101,13 +103,14 @@ struct FidgetWidget: Widget {
 struct FidgetBundle: WidgetBundle {
     var body: some Widget {
         FidgetWidget()
+        FidgetSmallWidget()
     }
 }
 
 struct FidgetWidget_Previews: PreviewProvider {
     static var previews: some View {
         FidgetWidgetEntryView(entry: FidgetEntry(date: Date(), fidgets: [.batman]))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }
 

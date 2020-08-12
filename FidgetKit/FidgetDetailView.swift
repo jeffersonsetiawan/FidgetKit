@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import WidgetKit
 
 struct FidgetDetailView: View {
     @Binding var fidget: Fidget
@@ -34,7 +33,6 @@ struct FidgetDetailView: View {
                                 self.rotation = 360 * 10
                                 self.isRotating = true
                                 self.fidget.rotate()
-                                WidgetCenter.shared.reloadTimelines(ofKind: "FidgetWidget")
                                 NotificationCenter.default.post(Notification(name: Notification.Name.SaveData))
                             } else {
                                 self.rotation = 0

@@ -24,6 +24,9 @@
 		E5E5556B24E3B58B00F71930 /* Foundation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5556A24E3B58B00F71930 /* Foundation+Ext.swift */; };
 		E5E5556C24E3B59100F71930 /* Foundation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5556A24E3B58B00F71930 /* Foundation+Ext.swift */; };
 		E5E5556D24E3B6F000F71930 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5E5552324E2C6C600F71930 /* Assets.xcassets */; };
+		E5E5562724E3D6B900F71930 /* FidgetSmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5562524E3D4DF00F71930 /* FidgetSmallWidget.swift */; };
+		E5E5562C24E3D73E00F71930 /* FidgetIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E5E5556E24E3D14F00F71930 /* FidgetIntent.intentdefinition */; };
+		E5E5562D24E3D73F00F71930 /* FidgetIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E5E5556E24E3D14F00F71930 /* FidgetIntent.intentdefinition */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,8 @@
 		E5E5556724E3A34600F71930 /* FidgetKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FidgetKit.entitlements; sourceTree = "<group>"; };
 		E5E5556824E3A35C00F71930 /* FidgetWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FidgetWidgetExtension.entitlements; sourceTree = "<group>"; };
 		E5E5556A24E3B58B00F71930 /* Foundation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Ext.swift"; sourceTree = "<group>"; };
+		E5E5556E24E3D14F00F71930 /* FidgetIntent.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = FidgetIntent.intentdefinition; sourceTree = "<group>"; };
+		E5E5562524E3D4DF00F71930 /* FidgetSmallWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FidgetSmallWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +210,8 @@
 				E5E5555524E2D3B000F71930 /* FidgetWidget.swift */,
 				E5E5555724E2D3B100F71930 /* Assets.xcassets */,
 				E5E5555924E2D3B100F71930 /* Info.plist */,
+				E5E5556E24E3D14F00F71930 /* FidgetIntent.intentdefinition */,
+				E5E5562524E3D4DF00F71930 /* FidgetSmallWidget.swift */,
 			);
 			path = FidgetWidget;
 			sourceTree = "<group>";
@@ -389,6 +396,7 @@
 				E5E5552224E2C6C500F71930 /* ContentView.swift in Sources */,
 				E5E5556B24E3B58B00F71930 /* Foundation+Ext.swift in Sources */,
 				E5E5556324E2D66000F71930 /* Fidget.swift in Sources */,
+				E5E5562C24E3D73E00F71930 /* FidgetIntent.intentdefinition in Sources */,
 				E5E5556524E2D67E00F71930 /* FidgetDetailView.swift in Sources */,
 				E5E5552024E2C6C500F71930 /* FidgetKitApp.swift in Sources */,
 			);
@@ -415,7 +423,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E5556C24E3B59100F71930 /* Foundation+Ext.swift in Sources */,
+				E5E5562D24E3D73F00F71930 /* FidgetIntent.intentdefinition in Sources */,
 				E5E5556624E2ED0D00F71930 /* Fidget.swift in Sources */,
+				E5E5562724E3D6B900F71930 /* FidgetSmallWidget.swift in Sources */,
 				E5E5555624E2D3B000F71930 /* FidgetWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
