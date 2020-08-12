@@ -41,8 +41,14 @@ struct FidgetDetailView: View {
                         }
                 ).padding()
             if fidget.timeNeededToFinishRotation > 0 {
-                Text("Time needed rotation to finish: ") + Text(Date(timeIntervalSinceNow: fidget.timeNeededToFinishRotation), style: .relative)
+                Text("Finish spin in: ") + Text(Date(timeIntervalSinceNow: fidget.timeNeededToFinishRotation), style: .relative)
             }
+            Text("Rotation per Spin: \(fidget.rotationPerSpin)x")
+                .font(.subheadline)
+            Text("Time per Spin: \(fidget.rotationTimePerSpin)s")
+                .font(.subheadline)
+            Text("Total Spin: \(fidget.totalSpin)x")
+                .font(.subheadline)
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
