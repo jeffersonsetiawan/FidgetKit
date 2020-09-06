@@ -36,7 +36,7 @@ struct Provider: TimelineProvider {
         let timeline = Timeline(
             entries: [
                 FidgetEntry(date: Date(), fidgets: fidgets),
-//                FidgetEntry(date: Date(timeIntervalSinceNow: 10), fidgets: [fidgets[0]])
+                FidgetEntry(date: Date(timeIntervalSinceNow: 10), fidgets: [fidgets[0]])
             ],
             policy: .after(dateToBeRefresh)
         )

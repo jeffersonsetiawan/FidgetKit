@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FidgetAppClip.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>FidgetKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,39 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>IntentHandler.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>E53814F124F0024C00EF4BC0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5E5551B24E2C6C500F71930</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5E5552C24E2C6C600F71930</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5E5553724E2C6C600F71930</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5E5554D24E2D3B000F71930</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
